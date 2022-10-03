@@ -1,0 +1,1 @@
+export { SignUpScreen as default } from 'app/features/user/signUp'

@@ -1,0 +1,287 @@
+scalar BigInt
+
+"""
+Boolean expression comparing fields on type "BigInt"
+"""
+input BigIntFilter {
+  eq: BigInt
+  gt: BigInt
+  gte: BigInt
+  in: [BigInt!]
+  lt: BigInt
+  lte: BigInt
+  neq: BigInt
+}
+
+"""
+Boolean expression comparing fields on type "Boolean"
+"""
+input BooleanFilter {
+  eq: Boolean
+  gt: Boolean
+  gte: Boolean
+  in: [Boolean!]
+  lt: Boolean
+  lte: Boolean
+  neq: Boolean
+}
+
+scalar Cursor
+
+scalar Date
+
+"""
+Boolean expression comparing fields on type "Date"
+"""
+input DateFilter {
+  eq: Date
+  gt: Date
+  gte: Date
+  in: [Date!]
+  lt: Date
+  lte: Date
+  neq: Date
+}
+
+scalar Datetime
+
+"""
+Boolean expression comparing fields on type "Datetime"
+"""
+input DatetimeFilter {
+  eq: Datetime
+  gt: Datetime
+  gte: Datetime
+  in: [Datetime!]
+  lt: Datetime
+  lte: Datetime
+  neq: Datetime
+}
+
+"""
+Boolean expression comparing fields on type "Float"
+"""
+input FloatFilter {
+  eq: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  neq: Float
+}
+
+"""
+Boolean expression comparing fields on type "Int"
+"""
+input IntFilter {
+  eq: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  neq: Int
+}
+
+scalar JSON
+
+"""
+Boolean expression comparing fields on type "JSON"
+"""
+input JSONFilter {
+  eq: JSON
+  neq: JSON
+}
+
+"""The root type for creating and mutating data"""
+type Mutation {
+  """Deletes zero or more records from the collection"""
+  deleteFromaccountCollection(
+    """Restricts the mutation's impact to records matching the critera"""
+    filter: accountFilter
+
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+  ): accountDeleteResponse!
+
+  """Adds one or more `accountInsertResponse` records to the collection"""
+  insertIntoaccountCollection(objects: [accountInsertInput!]!): accountInsertResponse
+
+  """Updates zero or more records in the collection"""
+  updateaccountCollection(
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: accountUpdateInput!
+
+    """Restricts the mutation's impact to records matching the critera"""
+    filter: accountFilter
+
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+  ): accountUpdateResponse!
+}
+
+"""Defines a per-field sorting order"""
+enum OrderByDirection {
+  """Ascending order, nulls first"""
+  AscNullsFirst
+
+  """Ascending order, nulls last"""
+  AscNullsLast
+
+  """Descending order, nulls first"""
+  DescNullsFirst
+
+  """Descending order, nulls last"""
+  DescNullsLast
+}
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+}
+
+"""The root type for querying data"""
+type Query {
+  """A pagable collection of type `account`"""
+  accountCollection(
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: accountFilter
+
+    """Sort order to apply to the collection"""
+    orderBy: [accountOrderBy!]
+  ): accountConnection
+}
+
+"""
+Boolean expression comparing fields on type "String"
+"""
+input StringFilter {
+  eq: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  neq: String
+}
+
+scalar Time
+
+"""
+Boolean expression comparing fields on type "Time"
+"""
+input TimeFilter {
+  eq: Time
+  gt: Time
+  gte: Time
+  in: [Time!]
+  lt: Time
+  lte: Time
+  neq: Time
+}
+
+scalar UUID
+
+"""
+Boolean expression comparing fields on type "UUID"
+"""
+input UUIDFilter {
+  eq: UUID
+  in: [UUID!]
+  neq: UUID
+}
+
+type account {
+  id: UUID!
+  created_at: Datetime
+  subscribed: Boolean
+  interval: String
+  name: String
+}
+
+type accountConnection {
+  edges: [accountEdge!]!
+  pageInfo: PageInfo!
+}
+
+type accountDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [account!]!
+}
+
+type accountEdge {
+  cursor: String!
+  node: account!
+}
+
+input accountFilter {
+  id: UUIDFilter
+  created_at: DatetimeFilter
+  subscribed: BooleanFilter
+  interval: StringFilter
+  name: StringFilter
+}
+
+input accountInsertInput {
+  id: UUID
+  created_at: Datetime
+  subscribed: Boolean
+  interval: String
+  name: String
+}
+
+type accountInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [account!]!
+}
+
+input accountOrderBy {
+  id: OrderByDirection
+  created_at: OrderByDirection
+  subscribed: OrderByDirection
+  interval: OrderByDirection
+  name: OrderByDirection
+}
+
+input accountUpdateInput {
+  id: UUID
+  created_at: Datetime
+  subscribed: Boolean
+  interval: String
+  name: String
+}
+
+type accountUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [account!]!
+}

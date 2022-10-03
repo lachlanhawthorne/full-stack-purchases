@@ -1,0 +1,30 @@
+{
+  "name": "@my/data",
+  "packageManager": "yarn@3.2.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "codegen": "graphql-codegen",
+    "codegen:fetch": "node --no-warnings ./fetchGraphQLSchema.ts",
+    "codegen:watch": "yarn run codegen -- --watch"
+  },
+  "dependencies": {
+    "@graphql-codegen/cli": "^2.12.1",
+    "@graphql-codegen/gql-tag-operations-preset": "^1.5.5",
+    "@react-native-async-storage/async-storage": "^1.17.10",
+    "@react-native-community/async-storage": "^1.12.1",
+    "@supabase/supabase-js": "^1.35.6",
+    "@tanstack/query-core": "^4.3.1",
+    "@urql/core": "^3.0.3",
+    "@xstate/inspect": "^0.7.0",
+    "cross-undici-fetch": "^0.4.14",
+    "gradient-string": "^2.0.2",
+    "graphql": "^16.6.0",
+    "jotai": "^1.8.3",
+    "progress": "^2.0.3",
+    "xstate": "^4.33.6",
+    "xstate-helpers": "^2.0.0",
+    "zustand": "^4.1.1",
+    "zustand-middleware-xstate": "^1.1.1",
+    "zustand-persist": "^0.4.0"
+  }
+}

@@ -1,0 +1,13 @@
+query GetUserAccount($id: UUID) {
+  accountCollection(filter: {id: {eq: $id}}) {
+    edges {
+      node {
+        id
+        created_at
+        interval
+        name
+        subscribed
+      }
+    }
+  }
+}

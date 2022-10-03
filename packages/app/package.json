@@ -1,0 +1,25 @@
+{
+  "version": "0.0.0",
+  "name": "app",
+  "main": "index.ts",
+  "dependencies": {
+    "@my/config": "*",
+    "@my/data": "workspace:^",
+    "@my/ui": "workspace:^",
+    "@react-navigation/bottom-tabs": "^6.4.0",
+    "@react-navigation/native": "^6.0.11",
+    "@react-navigation/native-stack": "^6.7.0",
+    "@tamagui/animations-react-native": "1.0.1-beta.160",
+    "@tamagui/colors": "1.0.1-beta.160",
+    "@tamagui/feather-icons": "1.0.1-beta.160",
+    "@tamagui/font-inter": "1.0.1-beta.160",
+    "@tamagui/shorthands": "1.0.1-beta.160",
+    "@tamagui/theme-base": "1.0.1-beta.160",
+    "@xstate/react": "^3.0.1",
+    "click-to-react-component": "^1.0.8",
+    "expo-linking": "^3.2.2",
+    "react": "^18.2.0",
+    "solito": "^0.0.26"
+  },
+  "sideEffects": false
+}
